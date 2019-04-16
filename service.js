@@ -34,7 +34,7 @@ self.addEventListener("install", async () => {
     const options = { applicationServerKey, userVisibleOnly: true };
     const subscription = await self.registration.pushManager.subscribe(options);
     /* const response = await saveSubscription(subscription); */
-    console.log(subscription);
+    console.log(JSON.stringify(subscription));
   } catch (err) {
     console.log("Error", err);
   }
