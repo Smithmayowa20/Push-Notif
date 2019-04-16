@@ -14,7 +14,7 @@ const urlB64ToUint8Array = base64String => {
 };
 
 const saveSubscription = async subscription => {
-  const SERVER_URL = "http://localhost:4000/save-subscription";
+  /* const SERVER_URL = "http://localhost:4000/save-subscription";
   const response = await fetch(SERVER_URL, {
     method: "post",
     headers: {
@@ -22,7 +22,8 @@ const saveSubscription = async subscription => {
     },
     body: JSON.stringify(subscription)
   });
-  return response.json();
+  return response.json(); */
+  console.log(JSON.stringify(subscription))
 };
 
 self.addEventListener("install", async () => {
@@ -33,8 +34,8 @@ self.addEventListener("install", async () => {
     );
     const options = { applicationServerKey, userVisibleOnly: true };
     const subscription = await self.registration.pushManager.subscribe(options);
-    /* const response = await saveSubscription(subscription); */
-    console.log(JSON.stringify(subscription));
+    const response = await saveSubscription(subscription);
+    /* console.log(JSON.stringify(subscription)); */
   } catch (err) {
     console.log("Error", err);
   }
